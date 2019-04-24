@@ -23,4 +23,11 @@ class ApplicationController < ActionController::Base
 		cookies.delete(:user_id)
 	end
 
+	def logged_in?
+		if current_user != nil
+			true
+		else
+			false
+		end
+	end
 end
