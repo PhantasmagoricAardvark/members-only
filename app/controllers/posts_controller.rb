@@ -5,14 +5,16 @@ class PostsController < ApplicationController
   end
 
   def create
-  	debugger
-  	post = Post.new(user_id: User.find(current_user.user_id), content: post_params[:content])
+  	post = Post.new(user_id: current_user.id, content: post_params[:content])
+  	post.save
   	if post.save
   		flash[:success] = "Post created"
+  		render "index"
   	end
   end
 
   def index
+  	@posts = Post.all
   end
 
   private
@@ -21,6 +23,10 @@ class PostsController < ApplicationController
   	if logged_in? == false
   		redirect_to root_url
   	end
+  end
+
+  def logged_in?
+  	false
   end
 
   def post_params
