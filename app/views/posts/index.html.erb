@@ -2,16 +2,16 @@
 <p>Find me in app/views/posts/index.html.erb</p>
 
 <% if logged_in? %>
-	<% @posts.each do |post| %>
-		<li>	
-			<%= post.user.name %>
-			<%= post.content %>
+	<% @posts.each do |f| %>
+		<li>
+			<%= f.user.name %>
+			<%= f.content %>
 		</li>
 	<% end %>
 <% else %>
-	<% @posts.each do |post| %>
+	<% @posts.each do |f| %>
 		<li>
-			<% post.content %>
+			<%= f.content %>
 		</li>
 	<% end %>
 <% end %>

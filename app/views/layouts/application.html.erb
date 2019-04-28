@@ -10,9 +10,15 @@
   </head>
 
   <body>
-    <% flash.each do |message| %>
-      <%= content_tag(:div, message) %>
-    <% end %>
-    <%= yield %>
+    <div class="container">
+      <% flash.each do |message| %>
+        <%= content_tag(:div, message) %>
+      <% end %>
+      <%= yield %><br>
+      <%= link_to "Log in", root_path %>
+      <%= link_to "Posts", posts_path %>
+      <%= link_to "New Post", new_post_path %><br>
+      logged in: <%= logged_in? %>
+    </div>
   </body>
 </html>
